@@ -10,7 +10,7 @@ This project adds several features to [Ch4rlesB's Medusa Toolhead](https://githu
 - Added right-side support arm
 - Resized heat insert slots from 3.9D -> 3.8D
 
-https://cdn.discordapp.com/attachments/908927957601497088/1148676114890371131/medusa-apex-changes.mp4
+https://github.com/ApexArray/Medusa-Toolhead/assets/91706106/2dc37877-ce4a-4b54-b629-3e299c2d5c1f
 
 New files are under the ./Apex_Mod folder:
 - [STLs](./Apex_Mod/stls/)
@@ -31,7 +31,7 @@ Insert the belt into the cavity, and slide in a printable clip to hold it in pla
 ![Clip-in belt](img/apex_clip-in_belt.jpg)
 ![Clip-in belt weight](img/apex_clip-in_belt_weight.jpg)
 
-https://cdn.discordapp.com/attachments/937171692382453770/1116471499696648282/23-06-08_12-34-25_3243.mp4
+https://github.com/ApexArray/Medusa-Toolhead/assets/91706106/179e2e59-fea6-49be-8833-3ce2743f321f
 
 **Installation tip:** The two front clips sit between the belt and X gantry, and might be difficult to install if you have big fingers. I use a screwdriver or thin wrench to keep the clip aligned while sliding it into the cavity.
 
