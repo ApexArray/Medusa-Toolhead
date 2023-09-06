@@ -1,141 +1,71 @@
-# Medusa-Toolhead
-**__IN BETA 3__**
-![FrontView](/img/frontview.png)
+# Medusa-Toolhead (Apex Mod)
 
-**Beta 3 Changelog:**
-- Removed the slide in belt attachment method. You now loop around a post and ziptie the belt to itself, à la VZBot. (Pardon my french)
+This project adds several features to [Ch4rlesB's Medusa Toolhead](https://github.com/Ch4rlesB/Medusa-Toolhead/tree/main).
 
-- Much Much MUCH stiffer. Horizontal bar that holds extruder and hotend does not flex at all now.
+- **New clip-in belt mount design**
+- **Optional bottom support brace**
+- Added support for ebb36 toolhead board (keeps original support for umbilical and Hartk board)
+- Lowered X endstop so that it activates against the Y carriage block (removes need for endstop flag)
+- Strengthened zip tie slots
+- Added right-side support arm
+- Resized heat insert slots from 3.9D -> 3.8D
 
-- Removed compability for the BLTouch as it is too unreliable inside a 60C enclosure.
+https://cdn.discordapp.com/attachments/908927957601497088/1148676114890371131/medusa-apex-changes.mp4
 
-- Narrowed down the Umbilical options to:
+New files are under the ./Apex_Mod folder:
+- [STLs](./Apex_Mod/stls/)
+- [CAD](./Apex_Mod/CAD/)
 
-	I. Straight umbilical with strain relief.
+All other STLs (not modified by me) can be found in the original [./stls](./stls) directory
 
-	II. Hartk Afterburner Toolhead board. (ALOT of different wiring            harnesses on aliexpress made to work with this board that                facilitate 		   wiring overall)
+## New clip-in belt mount design
 
-- Standardized the screw sizes.
+I'm not a fan of most toolhead belt mounting designs. I designed this solution to be:
+- Light-weight
+- Strong
+- Semi-toolless
+- Easy to assemble
 
-- CFD work to align the airflow from the duct better.
+Insert the belt into the cavity, and slide in a printable clip to hold it in place.
 
-# **__What is it?__**
+![Clip-in belt](img/apex_clip-in_belt.jpg)
+![Clip-in belt weight](img/apex_clip-in_belt_weight.jpg)
 
-EVA 2.4 replacement for the [**SnakeOil-XY CoreXY 3D Printer**](https://github.com/ChipCE/SnakeOil-XY).
+https://cdn.discordapp.com/attachments/937171692382453770/1116471499696648282/23-06-08_12-34-25_3243.mp4
 
-Designed to need the least hardware possible while still being stiff and light.
+**Installation tip:** The two front clips sit between the belt and X gantry, and might be difficult to install if you have big fingers. I use a screwdriver or thin wrench to keep the clip aligned while sliding it into the cavity.
 
-## **1. Toolhead**
+## (optional) Bottom support block
 
-### 1.1 Currently supports:
+**UNTESTED**
 
-	Extruder:
-	-Sherpa Mini Extruder
-	
-	Hotend:
-	- Dragon SF and HF
-	- Mosquito or NF-Crazy
-	
-	Probe:
-	- Klicky Probe
+The original toolhead seemed to have excessive Y wobble during fast printing. The fan duct provides some support, but the duct itself is cantilevered from the back and seemed to result in a "diving board" board effect.
 
-	Umbilical:
-	- Hartk Voron 2.4 Toolhead board
-	- Normal umbilical
-  Toolhead Board            |  No Toolhead Board
-:-------------------------:|:-------------------------:
-![umbilical_board](/img/umbilical_board.png)  |  ![umbilical_no_board](/img/umbilical_no_board.png)
+This support block aims to reinforce the front of the toolhead and minimize any bouncing/wobbling.
 
+The block is attached using two m3x35mm screws, so it does add some weight. More testing is needed to determine if it provides any real improvement.
 
-	
-### 1.2 Cooling 
-Uses a modified [Eva](https://github.com/EVA-3D/eva-main) cooling duct.
-![Air Duct](/img/air_duct.png)
-### 1.3 Offsets
-	 x : -1.8 mm
-	 y : 76.85 mm
-	 z : 6.2 mm
-### 1.4 BOM
-	- 1x Dragon OR Mosquito (NF-Crazy) Hotend
+![apex support block transparent](img/apex_support_block_transparent.png)
+![apex support block](img/apex_support_block.png)
 
-	- 1x Fully Assembled Sherpa Mini Extruder
+## CAD
 
-	- 1x 3010 Fan for hotend cooling.
-	
-	- 1x 5015 Fan for part cooling
+I tried to keep a tidy f360 timeline on this project. With some exceptions, most features are contained in their own group and labeled accordingly. You should be able to delete/change most features without affecting the rest of the model.
 
-	- 6x M3-6mm Screw (MGN12, Umbilical)
+![apex f360 timeline](./img/apex_f360_timeline.png)
 
-	- 7x M3-12mm Screw (Hotend Cooling Fan, Shroud, Cooling Duct, Sherpa mini mounting)
+## BOM
 
-	- 3x M3-25mm Screw (Cooling Duct and Fan) 
+Uses the same hardware from the original project, plus:
+- 2x m3x35mm screws (optional - bottom support block)
+- +2 heat inserts (bottom support block)
+- +2 heat inserts (for ebb36 + hartk/umbilical support)
 
-	- Mounting hardware that goes with your hotend (Usually 2 or 4 M2.5 screws)
+## TODO
 
-	- 2x M2x10mm self tapping screws (Endstop mounting)
+- Input shaper testing (with and without bottom support block)
+- Add support for 1515 gantry
+- Beta testing - any volunteers? 🙂
 
-	- 14x M3 Heatset insert M3x4mmx4mm
-
-	- OPTIONAL 1x hartk afterburner toolhead board
-
-	- 4x Zipties (Belts)
-						AND
-	- Klicky
-		- 2x M3-6mm Screw
-		- 2x M3-16mm Screws
-		- 2x M2-10mm self tapping screws
-		- 2x M6-8mm Screw
-		- 2x M3 Heatset insert M3x4mmx4mm
-		- 1x Omron D2F Microswitch or similar
-		- 8x 6x3mm round magnets
-		
-### Assembly
-
-![ToolheadAssembly](/img/Medusa_Assembly.gif)
-
-
-## **2. Tensioning Idlers**
-
-Belt mounting on the toolhead itself is very simplified to save weight. You will need to print the tensioning front idlers and replace the static stock ones. This will allow you to tension the belts.
-
-Front            |  Back
-:-------------------------:|:-------------------------:
-![backview_klicky](/img/idlers_front.png)  |  ![mount_klicky](/img/idlers_back.png)
-
-
-### Bom
-	- 2x M5x40mm Button Head (Idler shaft)
-	- 2x M5 Standard Nut (Idler shaft)
-	- 4x M6x8mm (Mouting the idlers to the frame - Reuse the ones used to hold the old idlers in place)
-	- 2x M3x30mm Button Head (Tensioning Screw)
-	- 12x M3 Heatset insert M3x4mmx4mm
-
-## **3. Klicky Probe**
- Currently supports [Klicky probe](https://github.com/jlas1/Klicky-Probe) with a custom toolhead mount and dock mount.
-
-
-
-
-Toolhead Mount            |  Dock & Mount
-:-------------------------:|:-------------------------:
-![backview_klicky](/img/backview_klicky.png)  |  ![mount_klicky](/img/mountview_klicky.png)
-
-## **4. Z Endstop**
- Based on the Z endstop present on [Voron 3D Printers](https://github.com/VoronDesign).
-
- Acts as your z endstop and lets you use the [Z Calibration tool](https://github.com/protoloft/klipper_z_calibration) in conjunction with the Klicky Probe, to automatically set your Z offset independently of nozzle or print surface.
-
-
-SnakeOil modified version            |  Based on the [Voron](https://docs.vorondesign.com/community/howto/120decibell/z_endstop_configuration.html) z endstop
-:-------------------------:|:-------------------------:
-![backview_klicky](/img/z_endstop.png)  |  ![mount_klicky](/img/v2_z_endstop_location.png)
-
-
-### Bom
-	-2x M3x2mm Button Head (Mounting to bed)
-	-2x M3 Standard Nut (Mounting to bed)
-	-1x 5mm x 25mm Steel shaft
-	-1x Omron D2F Microswitch or similar
-	-1x 20-tooth timing pulley (deflanged)
-
- If you are having trouble taking the flange off the pulley visit the [version 2.2](https://github.com/VoronDesign/Voron-2/tree/Voron2.2/STLs/VORON2.2/Tools) of the Voron repository under tools. After printing out the hub puller and using the bolts from the kit, de-flanging is very easy.
+## LICENSE
+All files released under the same [GNU General Public License v3.0](./LICENSE) as the original project.
